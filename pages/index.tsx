@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import { Button } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import SettingsPowerIcon from "@mui/icons-material/SettingsPower";
 import classes from "../styles/Home.module.css";
 import Router from "next/router";
 
@@ -42,7 +43,8 @@ export default function Home() {
             color="basic"
             onClick={() => Router.push("/chat")}
           >
-            Start
+            <SettingsPowerIcon />
+            &nbsp;Start
           </Button>
         </ThemeProvider>
       </main>
