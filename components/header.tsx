@@ -12,7 +12,10 @@ const Header: React.FC = () => {
         <Typography variant="h4" color="#e6fcf5">
           Chat with Bot
         </Typography>
-        <Avatar alt="Alpha Sharp" src="" />
+        <Avatar
+          alt="Alpha Sharp"
+          src="https://raw.githubusercontent.com/Zarriy/chatwithStranger/main/public/chatbot.png"
+        />
       </Toolbar>
     </AppBar>
   );

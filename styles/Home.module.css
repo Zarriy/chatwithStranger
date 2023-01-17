@@ -30,3 +30,23 @@
 .sendButton {
   padding: 16px 24px;
 }
+.chatContainer {
+  width: 100%;
+  height: 76vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.chatbubble {
+  width: fit-content;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 3px;
+}
+.user {
+  background-color: #c3fae8;
+}
+.bot {
+  background-color: #a5d8ff;
+  align-self: flex-end;
+}
