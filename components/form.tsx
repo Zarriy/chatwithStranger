@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import classes from "../styles/Home.module.css";
 import { TextField, Button } from "@mui/material";
+import { addMessage, fetchRandomWord } from "@/store/store";
+import { useDispatch, useSelector } from "react-redux";
 
 const Form: React.FC = () => {
+  const messages = useSelector((state: any) => state.chat.messages);
   const [message, setMessage] = useState("");
+  const dispatch = useDispatch();
+
   const handleSendMessage = () => {
-    console.log("send message" + message);
+    dispatch(addMessage({ user: true, message: message }));
+    dispatch(fetchRandomWord());
+    console.log(messages);
   };
 
   return (
