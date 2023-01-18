@@ -27,6 +27,7 @@ const Form: React.FC<{ recUserResp: (value: string) => void }> = (props) => {
         className={classes.sendButton}
         variant="contained"
         color="primary"
+        onClick={handleSendMessage}
       >
         Send
       </Button>
