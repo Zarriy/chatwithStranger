@@ -5,14 +5,19 @@ import { useSelector } from "react-redux";
 const ChatContainer: React.FC = () => {
   const messages = useSelector((state: any) => state.chat.messages);
 
-  useEffect(() => {
-    console.log(messages);
-  }, [messages]);
-
   return (
     <div className={classes.chatContainer}>
-      {/* <div className={`${classes.chatbubble} ${classes.user}`}>Hi</div>
-      <div className={`${classes.chatbubble} ${classes.bot}`}>Hello</div> */}
+      {messages.length > 0 &&
+        messages.map((mes: { message: string; user: boolean }, i: number) => (
+          <div
+            key={i}
+            className={`${classes.chatbubble} ${
+              mes.user ? `${classes.user}` : `${classes.bot}`
+            }`}
+          >
+            {mes.message}
+          </div>
+        ))}
     </div>
   );
 };
