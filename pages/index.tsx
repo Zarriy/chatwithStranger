@@ -7,21 +7,9 @@ import SettingsPowerIcon from "@mui/icons-material/SettingsPower";
 import classes from "../styles/Home.module.css";
 import Router from "next/router";
 
-const inter = Inter({ subsets: ["latin"] });
-
-declare module "@mui/material/styles" {
-  interface Palette {
-    basic: Palette["primary"];
-  }
-
-  interface PaletteOptions {
-    basic?: PaletteOptions["primary"];
-  }
-}
-
 const theme = createTheme({
   palette: {
-    basic: {
+    primary: {
       main: "#63e6be",
     },
   },
@@ -40,7 +28,7 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           <Button
             variant="outlined"
-            color="basic"
+            color="primary"
             onClick={() => Router.push("/chat")}
           >
             <SettingsPowerIcon />

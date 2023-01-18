@@ -15,7 +15,7 @@ export const RandomAPi = createApi({
       query: () => "word",
       providesTags: ["RandomWord"],
     }),
-    getAnotherWord: build.mutation<RandomWord, string>({
+    getAnotherWord: build.mutation<RandomWord, any>({
       query: () => "word",
       invalidatesTags: ["RandomWord"],
     }),

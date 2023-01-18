@@ -4,11 +4,15 @@ import classes from "../styles/Home.module.css";
 import Header from "@/components/header";
 import Form from "@/components/form";
 import ChatContainer from "@/components/chatContainer";
-import { useGetAnotherWordMutation } from "./api/getRandomWord";
+import {
+  useGetAnotherWordMutation,
+  useGetWordQuery,
+} from "./api/getRandomWord";
 import { useSelector, useDispatch } from "react-redux";
 import { addMessage } from "@/store/store";
 
 const Chat: React.FC = () => {
+  const { data, error, isLoading } = useGetWordQuery("any");
   const [getAnotherWord, result] = useGetAnotherWordMutation();
   const messages = useSelector((state: any) => state.chat.messages);
   const dispatch = useDispatch();
@@ -23,8 +27,8 @@ const Chat: React.FC = () => {
         dispatch(addMessage({ user: false, message: msg }));
       }, delay);
     } else {
-      getAnotherWord("get").then((res) =>
-        dispatch(addMessage({ user: false, message: res.data[0] }))
+      getAnotherWord("get").then(() =>
+        dispatch(addMessage({ user: false, message: data }))
       );
     }
   };
