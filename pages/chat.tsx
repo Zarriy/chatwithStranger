@@ -3,22 +3,29 @@ import classes from "../styles/Home.module.css";
 import Header from "@/components/header";
 import Form from "@/components/form";
 import ChatContainer from "@/components/chatContainer";
-import {
-  useGetWordQuery,
-  useGetAnotherWordMutation,
-} from "./api/getRandomWord";
+import { useGetAnotherWordMutation } from "./api/getRandomWord";
 import { useSelector, useDispatch } from "react-redux";
 import { addMessage } from "@/store/store";
 
 const Chat: React.FC = () => {
-  const { data, error, isLoading } = useGetWordQuery("get");
   const [getAnotherWord, result] = useGetAnotherWordMutation();
   const messages = useSelector((state: any) => state.chat.messages);
   const dispatch = useDispatch();
 
   const handlingResponse = (value: string) => {
     dispatch(addMessage({ user: true, message: value }));
-    getAnotherWord("get").then((res) => console.log(res.data[0]));
+
+    if (value.startsWith("/delay")) {
+      let delay = Number(value.split(" ")[1]);
+      let msg = value.split(" ")[2];
+      setTimeout(() => {
+        dispatch(addMessage({ user: false, message: msg }));
+      }, delay);
+    } else {
+      getAnotherWord("get").then((res) =>
+        dispatch(addMessage({ user: false, message: res.data[0] }))
+      );
+    }
   };
 
   return (

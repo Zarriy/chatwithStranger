@@ -1,13 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import classes from "../styles/Home.module.css";
 import { TextField, Button } from "@mui/material";
-import { addMessage } from "@/store/store";
 
 const Form: React.FC<{ recUserResp: (value: string) => void }> = (props) => {
   // const inputMessage = useRef<HTMLInputElement>();
   const [message, setMessage] = useState("");
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     // const message = inputMessage.current!.value;
     props.recUserResp(message);
