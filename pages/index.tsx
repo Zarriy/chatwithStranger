@@ -33,7 +33,7 @@ export default function Home() {
         <title>ChatBot App</title>
         <meta name="description" content="Talk to our Crazy Chatbot" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/chatbot.png" />
       </Head>
       <main className={classes.home}>
         <h1> 👋 Let&apos;s Chat</h1>

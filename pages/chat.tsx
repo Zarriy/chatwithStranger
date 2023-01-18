@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import classes from "../styles/Home.module.css";
 import Header from "@/components/header";
@@ -29,11 +30,20 @@ const Chat: React.FC = () => {
   };
 
   return (
-    <div className={classes.chatPage}>
-      <Header />
-      <ChatContainer />
-      <Form recUserResp={handlingResponse} />
-    </div>
+    <>
+      <Head>
+        <title>ChatBot App</title>
+        <meta name="description" content="Our Crazy little Chat Bot" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/chatbot.png" />
+      </Head>
+
+      <div className={classes.chatPage}>
+        <Header />
+        <ChatContainer />
+        <Form recUserResp={handlingResponse} />
+      </div>
+    </>
   );
 };
 
